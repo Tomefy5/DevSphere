@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt = required("bcrypt");
+const bcrypt = require("bcrypt");
 const saltRound = 10;
 
 const { Schema } = mongoose;
