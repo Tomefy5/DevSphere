@@ -77,7 +77,7 @@ export default function RegisterForm() {
       </button>
       <p className="text-sm flex gap-1">
         <span>Already have an account ?</span>
-        <Link className="text-blue-800">login here</Link>
+        <Link to={"/login"} className="text-blue-800">login here</Link>
       </p>
     </form>
   );

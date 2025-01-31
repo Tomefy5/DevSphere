@@ -26,8 +26,10 @@ const loginHandler = async (req, res) => {
     // Send token with cookie
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "strict",
-      secure: false,
+      sameSite: "lax",
+      secure: false, // true en production
+      maxAge: 2 * 60 * 60 * 1000,
+      path: "/",
     });
 
     res.json(user);

@@ -31,7 +31,6 @@ const login = async (userLogin) => {
       throw new Error("login: Invalid login information");
     }
 
-    //todo: verrify email validity
 
     // Does the user exist ?
     const user = await User.findOne({ email: userLogin.email });
@@ -39,7 +38,7 @@ const login = async (userLogin) => {
 
     // Verify password
     const isMatch = await bcrypt.compare(userLogin.password, user.password); // there is an order with params
-    if (!isMatch) throw new Error(`login: password doesn't match: ${user.password} et ${userLogin.password}: ${isMatch}`);
+    if (!isMatch) throw new Error(`login: password doesn't match`);
 
     return user;
   } catch (error) {

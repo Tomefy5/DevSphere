@@ -1,11 +1,16 @@
-// import LoginForm from "./components/LoginForm";
-import RegisterForm from "./components/RegisterForm";
+import { Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage";
+import DevPage from "./pages/DevPage";
 
   function App() {
   return (
     <div >
-      <RegisterForm/>
-      {/* <LoginForm/> */}
+     <Routes>
+      <Route path="/login" element={<LoginPage/>} />
+      <Route  path="/" element={<RegistrationPage/>}/>
+      <Route path="/devpage" element={<DevPage/>} />
+     </Routes>
     </div>
   );
 }

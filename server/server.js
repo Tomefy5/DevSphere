@@ -11,27 +11,25 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Middleware CORS corrigé
+app.use(
+  cors({
+    origin: process.env.FRONT_URL, 
+    credentials: true,
+  })
+);
 app.use(express.json());
+app.use(cookieParser());
 
 // Routes
 app.use("/api", authRouter);
 
-// Connection to mongodb
+// Connexion à MongoDB
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected successfully to mongodb");
-  })
-  .catch((e) => {
-    console.error(e.message);
-  });
+  .connect(process.env.MONGO_URL)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error(err));
 
-
-  app.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`);
-  })
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
