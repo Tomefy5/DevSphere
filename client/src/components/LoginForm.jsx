@@ -22,7 +22,7 @@ export default function LoginForm() {
         email: "",
         password: "",
       });
-      navigate("/devpage");
+      navigate("/profil");
     } catch (error) {
       alert(error.message);
     }

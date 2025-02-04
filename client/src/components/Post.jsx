@@ -7,7 +7,7 @@ export default function Post() {
   const [expend, setExpend] = useState(false);
 
   return (
-    <div className="bg-red-30 flex flex-col gap-3">
+    <div className="bg-white p-4 mx-4 shadow-md shadow-slate-400 rounded flex flex-col gap-3">
       {/* Profil section */}
       <div className="flex gap-3 items-center">
         <div className="avatar flex items-center">
@@ -40,7 +40,7 @@ export default function Post() {
       </div>
 
       {/* Post Context */}
-      <div className="bg-yellow-200 p-1 card">
+      <div className="p-1 card">
         <img src={PubImage} alt="post content" />
       </div>
 
@@ -48,14 +48,14 @@ export default function Post() {
 
       <div className="flex flex-col gap-2">
         <div className="rounded-md px-2 flex gap-1 items-center">
-            <div className="flex items-center justify-center bg-blue-200 p-2 rounded-full">
+            <div className="flex items-center justify-center bg-slate-200 p-2 rounded-full">
               <ThumbsUp size={14}/>
             </div>
             <p className="font-medium">Tomefy Ny soa and 23 other persons</p>
         </div>
 
-        <div className="flex justify-between bg-slate-20 rounded px-2">
-          <button className="btn btn-ghost bg-slate-200 w-[30%] rounded-full flex justify-center items-center">
+        <div className="flex justify-around bg-slate-20 rounded-md px-2">
+          <button className="btn btn-ghost bg-slate-200 w-[30%]  rounded-full flex justify-center items-center">
             <ThumbsUp size={20} />
             <span className="text-base font-bold">20</span>
           </button>
