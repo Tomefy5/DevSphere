@@ -48,22 +48,22 @@ export default function Post() {
 
       <div className="flex flex-col gap-2">
         <div className="rounded-md px-2 flex gap-1 items-center">
-            <div className="flex items-center justify-center bg-slate-200 p-2 rounded-full">
-              <ThumbsUp size={14}/>
+            <div className="flex items-center justify-center bg-blue-200 p-2 rounded-full">
+              <ThumbsUp size={14} className="text-blue-800"/>
             </div>
             <p className="font-medium">Tomefy Ny soa and 23 other persons</p>
         </div>
 
-        <div className="flex justify-around bg-slate-20 rounded-md px-2">
-          <button className="btn btn-ghost bg-slate-200 w-[30%]  rounded-full flex justify-center items-center">
+        <div className="flex justify-around bg-slate-20 rounded-md px-2 text-blue-800">
+          <button className="btn btn-ghost bg-blue-200 w-[30%] rounded-full flex justify-center items-center">
             <ThumbsUp size={20} />
-            <span className="text-base font-bold">20</span>
+            <span className="text-base font-bold ">20</span>
           </button>
-          <button className="btn btn-ghost bg-slate-200 w-[30%] rounded-full flex justify-center items-center">
+          <button className="btn btn-ghost bg-blue-200 w-[30%] rounded-full flex justify-center items-center">
             <MessageSquare size={20} />
             <span className="text-base font-bold">20</span>
           </button>
-          <button className="btn btn-ghost bg-slate-200 w-[30%] rounded-full flex justify-center items-center">
+          <button className="btn btn-ghost bg-blue-200 w-[30%] rounded-full flex justify-center items-center">
             <Share2 size={20} />
             <span className="text-base font-bold">20</span>
           </button>

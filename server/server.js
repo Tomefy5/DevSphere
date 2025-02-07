@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRouter = require("./routes/authRoutes");
+const userDataRouter = require("./routes/userDataRoutes");
 
 const PORT = process.env.PORT || 5000;
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api", authRouter);
+app.use("/api", userDataRouter);
 
 // Connexion à MongoDB
 mongoose
