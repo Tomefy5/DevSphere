@@ -2,9 +2,10 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
-
+const UserData = require("../models/UserData");
 
 const signup = async (user) => {
+  let newUserData = null;
   try {
     // Info verification
     if (!user.username || !user.password || !user.email) {
@@ -19,7 +20,11 @@ const signup = async (user) => {
 
     const newUser = new User(user);
     await newUser.save();
-    return newUser;
+    if (newUser) {
+      newUserData = new UserData({ user: newUser._id });
+      await newUserData.save();
+    }
+    return { newUser, newUserData };
   } catch (error) {
     throw error;
   }
@@ -30,7 +35,6 @@ const login = async (userLogin) => {
     if (!userLogin.email || !userLogin.password) {
       throw new Error("login: Invalid login information");
     }
-
 
     // Does the user exist ?
     const user = await User.findOne({ email: userLogin.email });

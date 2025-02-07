@@ -1,4 +1,7 @@
-const { createUserData } = require("../services/userDataServices");
+const {
+  createUserData,
+  updateUserData,
+} = require("../services/userDataServices");
 
 const createUserDataHandler = async (req, res) => {
   try {
@@ -9,6 +12,18 @@ const createUserDataHandler = async (req, res) => {
   }
 };
 
+const updateUserDataHandler = async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const updatedUserData = await updateUserData(userId, req.body);
+    res.json(updatedUserData);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   createUserDataHandler,
+  updateUserDataHandler
 };

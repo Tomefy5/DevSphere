@@ -14,4 +14,20 @@ const createUserData = async (userData) => {
   }
 };
 
-module.exports = { createUserData };
+const updateUserData = async (userId, updatedData) => {
+  try {
+    const userDataToUpdate = await UserData.findOneAndUpdate(
+      { user: userId },
+      updatedData,
+      { new: true }
+    );
+
+    if (!userDataToUpdate)
+      throw new Error("updateUserData: failed to update user data");
+    return userDataToUpdate;
+  } catch (error) {
+    throw error;
+  }
+};
+
+module.exports = { createUserData, updateUserData };
